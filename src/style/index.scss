@@ -1,4 +1,5 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
+@import "~bootstrap/scss/bootstrap";
 
 .filters {
   background: white;
@@ -100,5 +101,22 @@
         border-radius: 0 0 3px 0;
       }
     }
+  }
+  .wrap {
+    margin: 13% 1% 1% 1%;
+    max-width: 295px;
+    width: 100%;
+    height: auto;
+    color: #000 !important;
+  }
+  .left {
+    float: left;
+    text-transform: capitalize;
+    margin-left: -6%;
+  }
+  .right {
+    float: right;
+    text-transform: capitalize;
+    margin-right: -6%;
   }
 }
