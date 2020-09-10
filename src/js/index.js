@@ -55,7 +55,9 @@ function render(variables = {}) {
             "Your name"}</h2></div><div class="col-6"><h2 class="left">${variables.lastname ||
     "Your last name"}</h2></div></div>
           <h2>${variables.role || "Your Role"}</h2>
-          <h3>${variables.country || "Select your Location"}</h3>
+          <h3>${variables.country ||
+            "Select your Location"}, ${variables.city ||
+    "Select your Location"}</h3>
           <ul ${variables.socialMediaPosition.right} class= "${
     variables.socialMediaPosition
   }">
