@@ -43,9 +43,7 @@ function render(variables = {}) {
   } else {
     mdDisplay = `"position-right" `;
   }
-  //twitter
-  let tweetUrl = `${variables.twitter}`;
-  if (variables.twitter == null) ` https://twitter.com/alesanchezr`;
+
 
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
