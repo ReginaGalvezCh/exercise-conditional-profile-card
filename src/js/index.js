@@ -28,12 +28,24 @@ function render(variables = {}) {
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = `<div class='cover'></div>`;
+  //name
   let yourName = `<div class="right"> <h2>${variables.name}</h2> </div>`;
   if (variables.name == null)
     yourName = `<div class="right"><h2>Your Name</h2></div>`;
+  //last name
   let yourLastName = `<div class="left"> <h2>${variables.lastname}</h2> </div>`;
   if (variables.lastname == null)
     yourLastName = `<div class="left"><h2>Your Last Name</h2></div>`;
+  //social media
+  let mdDisplay = ` "${variables.socialMediaPosition}"`;
+  if (variables.socialMediaPosition == "position-left") {
+    mdDisplay = `"position-left"`;
+  } else {
+    mdDisplay = `"position-right" `;
+  }
+  //twitter
+  let tweetUrl = `${variables.twitter}`;
+  if (variables.twitter == null) ` https://twitter.com/alesanchezr`;
 
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
@@ -42,8 +54,8 @@ function render(variables = {}) {
           <div class="row wrap"><div class="col-6">${yourName}</div><div class="col-6">${yourLastName}</div></div>
           <h2>Web Developer</h2>
           <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
+          <ul class=${mdDisplay}>
+            <li><a href="${variables.tweetUrl}"><i class="fa fa-twitter"></i></a></li>
             <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
             <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
             <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
