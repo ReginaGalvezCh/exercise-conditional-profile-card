@@ -29,13 +29,13 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = `<div class='cover'></div>`;
   //name
-  let yourName = `<div class="right"> <h2>${variables.name}</h2> </div>`;
-  if (variables.name == null)
-    yourName = `<div class="right"><h2>Your Name</h2></div>`;
+  //   let yourName = `<div class="right"> <h2>${variables.name}</h2> </div>`;
+  //   if (variables.name == null)
+  //     yourName = `<div class="right"><h2>Your Name</h2></div>`;
   //last name
-  let yourLastName = `<div class="left"> <h2>${variables.lastname}</h2> </div>`;
-  if (variables.lastname == null)
-    yourLastName = `<div class="left"><h2>Your Last Name</h2></div>`;
+  //   let yourLastName = `<div class="left"> <h2>${variables.lastname}</h2> </div>`;
+  //   if (variables.lastname == null)
+  //     yourLastName = `<div class="left"><h2>Your Last Name</h2></div>`;
   //social media
   let mdDisplay = ` "${variables.socialMediaPosition}"`;
   if (variables.socialMediaPosition == "position-left") {
@@ -51,14 +51,26 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <div class="row wrap"><div class="col-6">${yourName}</div><div class="col-6">${yourLastName}</div></div>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class=${mdDisplay}>
-            <li><a href="${variables.tweetUrl}"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+          <div class="row wrap"><div class="col-6"><h2 class="right">${variables.name ||
+            "Your name"}</h2></div><div class="col-6"><h2 class="left">${variables.lastname ||
+    "Your last name"}</h2></div></div>
+          <h2>${variables.role || "Your Role"}</h2>
+          <h3>${variables.country || "Select your Location"}</h3>
+          <ul ${variables.socialMediaPosition.right} class= "${
+    variables.socialMediaPosition
+  }">
+            <li><a href="https://twitter.com/${
+              variables.twitter
+            }" target=”_blank”><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${
+              variables.github
+            }" target=”_blank”><i class="fa fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${
+              variables.linkedin
+            }" target=”_blank”><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${
+              variables.instagram
+            }" target=”_blank”><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
